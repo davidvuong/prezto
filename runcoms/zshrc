@@ -16,9 +16,6 @@ export EDITOR="vim"
 export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#$PATH=$PATH:$HOME/.rvm/bin
-
 # Shell virtualenvwrapper startup.
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -37,3 +34,6 @@ if [ -f ../zsh_nocorrect ]; then
         alias $COMMAND="nocorrect $COMMAND"
     done < ~/zsh_nocorrect
 fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+PATH=$PATH:$HOME/.rvm/bin
