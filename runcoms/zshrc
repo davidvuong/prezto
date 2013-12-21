@@ -16,7 +16,8 @@ export EDITOR="vim"
 export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#$PATH=$PATH:$HOME/.rvm/bin
 
 # Shell virtualenvwrapper startup.
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
@@ -36,23 +37,3 @@ if [ -f ../zsh_nocorrect ]; then
         alias $COMMAND="nocorrect $COMMAND"
     done < ~/zsh_nocorrect
 fi
-
-PATH=$PATH:$HOME/.rvm/bin
-
-# Aliases.
-alias l="ls -l --color -X --group-directories-first"
-alias ll="ls -la --color -X --group-directories-first"
-
-alias cd..="cd .."
-alias ..3="../../../"
-
-alias h='history'
-alias j='jobs -l'
-
-# Use MacVim if we're on a Mac.
-if [ "$(uname)" = "Darwin" ]; then;
-    alias vim="mvim -v"
-fi
-
-# GNU Replacements that couldn't be installed with --default-names
-alias cal=gcal
