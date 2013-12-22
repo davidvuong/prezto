@@ -13,7 +13,7 @@ fi
 # Set Vim as the default terminal editor
 export EDITOR="vim"
 
-export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOME/.rvm:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Shell virtualenvwrapper startup.
@@ -36,4 +36,3 @@ if [ -f ../zsh_nocorrect ]; then
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin
