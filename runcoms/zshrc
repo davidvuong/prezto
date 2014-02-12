@@ -10,14 +10,18 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Set Vim as the default terminal editor
+# Set Vim as the default terminal editor.
 export EDITOR="vim"
 
 export PATH="$HOME/.rvm:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+# Android Studio adb and other dev tools.
+export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
+
 # Exporting Chrome for Karam via chromedriver.
 export CHROME_BIN=/opt/homebrew-cask/Caskroom/google-chrome/stable-channel/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+export FIREFOX_BIN=/opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app/Contents/MacOS/firefox-bin
 
 # Shell virtualenvwrapper startup.
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then

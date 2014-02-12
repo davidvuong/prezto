@@ -31,15 +31,18 @@ alias g='git'
 
 # Branch (b)
 alias gb='git branch'
+alias gba='git branch -av'
 alias gbc='git checkout -b'
 alias gbl='git branch -v'
-alias gbL='git branch -av'
 alias gbx='git branch -d'
 alias gbX='git branch -D'
 alias gbm='git branch -m'
 alias gbM='git branch -M'
 alias gbs='git show-branch'
 alias gbS='git show-branch -a'
+
+# Status
+alias gst='git status'
 
 # Commit (c)
 alias gc='git commit --verbose'
