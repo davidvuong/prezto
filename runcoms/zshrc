@@ -43,3 +43,9 @@ if [ -f ../zsh_nocorrect ]; then
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Temporary aliases:
+alias mt=sh\ ~/workspace/tapestry/message_toggle.sh
+
+alias tvm=python\ ~/workspace/tv-manager/tv-manager.py
+alias lolcat=python\ ~/workspace/langs/python/glolcat.py

@@ -57,11 +57,6 @@ alias po='popd'
 alias pu='pushd'
 alias type='type -a'
 
-# Use MacVim if we're on a Mac.
-if [ "$(uname)" = "Darwin" ]; then;
-    alias vim="mvim -v"
-fi
-
 # GNU Replacements that couldn't be installed with --default-names
 alias cal=gcal
 
