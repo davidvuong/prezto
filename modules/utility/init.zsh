@@ -139,6 +139,11 @@ fi
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
 
+# Use MacVim if we're on a Mac.
+if [ "$(uname)" = "Darwin" ]; then;
+    alias vim="mvim -v"
+fi
+
 #
 # Functions
 #
