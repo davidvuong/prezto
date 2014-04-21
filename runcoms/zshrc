@@ -47,5 +47,8 @@ fi
 # Temporary aliases:
 alias mt=sh\ ~/workspace/tapestry/message_toggle.sh
 
-alias tvm=python\ ~/workspace/tv-manager/tv-manager.py
+alias tvm=python\ ~/workspace/tvm/tvm/tvm.py
 alias lolcat=python\ ~/workspace/langs/python/glolcat.py
+
+# added by travis gem
+[ -f /Users/davidvuong/.travis/travis.sh ] && source /Users/davidvuong/.travis/travis.sh
