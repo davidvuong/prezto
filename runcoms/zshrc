@@ -19,6 +19,9 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # Android Studio adb and other dev tools.
 export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
 
+# Local Python binary directory.
+export PATH=$PATH:~/Library/Python/2.7/bin
+
 # Exporting Chrome for Karam via chromedriver.
 export CHROME_BIN=/opt/homebrew-cask/Caskroom/google-chrome/stable-channel/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 export FIREFOX_BIN=/opt/homebrew-cask/Caskroom/firefox/latest/Firefox.app/Contents/MacOS/firefox-bin
@@ -46,8 +49,6 @@ fi
 
 # Temporary aliases.
 alias mt=sh\ ~/workspace/tapestry/message_toggle.sh
-
-alias tvm=python\ ~/workspace/tvm/tvm/tvm.py
 alias lolcat=python\ ~/workspace/langs/python/glolcat.py
 
 # added by travis gem
