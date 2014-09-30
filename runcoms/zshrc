@@ -64,5 +64,7 @@ alias cd='venv_cd'
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Stitch related environment variables.
+export STITCH_SENSITIVE_DATA_PATH=${HOME}/workspace/stitch-sensitive-data
 export STITCH_APP_PATH=${HOME}/workspace/stitch
+export STITCH_BACKEND_PATH=${HOME}/workspace/stitch/cloud_code
 export STITCH_ADMIN_APP_PATH=${HOME}/workspace/stitch-admin
