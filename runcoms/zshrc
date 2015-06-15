@@ -54,3 +54,5 @@ venv_cd() {
 check_virtualenv
 
 alias cd='venv_cd'
+
+source ~/stitch_zshrc.sh
