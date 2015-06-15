@@ -34,6 +34,7 @@ alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
 
 # Disable globbing.
+alias bower='noglob bower'
 alias fc='noglob fc'
 alias find='noglob find'
 alias ftp='noglob ftp'
@@ -71,14 +72,14 @@ if is-callable 'dircolors'; then
 
   if zstyle -t ':prezto:module:utility:ls' color; then
     if [[ -s "$HOME/.dir_colors" ]]; then
-      eval "$(dircolors "$HOME/.dir_colors")"
+      eval "$(dircolors --sh "$HOME/.dir_colors")"
     else
-      eval "$(dircolors)"
+      eval "$(dircolors --sh)"
     fi
 
-    alias ls="$aliases[ls] --color=auto"
+    alias ls="${aliases[ls]:-ls} --color=auto"
   else
-    alias ls="$aliases[ls] -F"
+    alias ls="${aliases[ls]:-ls} -F"
   fi
 else
   # BSD Core Utilities
@@ -89,18 +90,30 @@ else
     # Define colors for the completion system.
     export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
-    alias ls='ls -G'
+    alias ls="${aliases[ls]:-ls} -G"
   else
-    alias ls='ls -F'
+    alias ls="${aliases[ls]:-ls} -F"
   fi
 fi
 
 alias l="ls -l --color -X --group-directories-first"
 alias ll="ls -la --color -X --group-directories-first"
 
+# Grep
+if zstyle -t ':prezto:module:utility:grep' color; then
+  export GREP_COLOR='37;45'           # BSD.
+  export GREP_COLORS="mt=$GREP_COLOR" # GNU.
+
+  alias grep="${aliases[grep]:-grep} --color=auto"
+fi
+
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
+elif [[ "$OSTYPE" == cygwin* ]]; then
+  alias o='cygstart'
+  alias pbcopy='tee > /dev/clipboard'
+  alias pbpaste='cat /dev/clipboard'
 else
   alias o='xdg-open'
 
@@ -130,8 +143,13 @@ alias du='du -kh'
 if (( $+commands[htop] )); then
   alias top=htop
 else
-  alias topc='top -o cpu'
-  alias topm='top -o vsize'
+  if [[ "$OSTYPE" == (darwin*|*bsd*) ]]; then
+    alias topc='top -o cpu'
+    alias topm='top -o vsize'
+  else
+    alias topc='top -o %CPU'
+    alias topm='top -o %MEM'
+  fi
 fi
 
 # Miscellaneous
@@ -180,6 +198,5 @@ function find-exec {
 
 # Displays user owned processes status.
 function psu {
-  ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
+  ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
-

@@ -54,16 +54,3 @@ venv_cd() {
 check_virtualenv
 
 alias cd='venv_cd'
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-[ -f /Users/davidvuong/.travis/travis.sh ] && source /Users/davidvuong/.travis/travis.sh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# Stitch related environment variables.
-export STITCH_SENSITIVE_DATA_PATH=${HOME}/workspace/stitch-sensitive-data
-export STITCH_APP_PATH=${HOME}/workspace/stitch
-export STITCH_BACKEND_PATH=${HOME}/workspace/stitch/cloud_code
-export STITCH_ADMIN_APP_PATH=${HOME}/workspace/stitch-admin
-
-alias lc='python ${HOME}/workspace/stitch-sensitive-data/link_config.py'
