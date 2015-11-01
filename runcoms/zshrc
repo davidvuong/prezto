@@ -52,7 +52,14 @@ venv_cd() {
 
 # Call check_virtualenv in case opening directly into a directory.
 check_virtualenv
-
 alias cd='venv_cd'
 
+# Update `$PATH` to include node_modules/.bin executables.
+export PATH="$PATH:./node_modules/.bin/"
+
+export NVM_DIR=~/.nvm
+source /usr/local/opt/nvm/nvm.sh
+
+# Source all Stitch related configuration.
 source ~/stitch_zshrc.sh
+
