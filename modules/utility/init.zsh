@@ -59,7 +59,9 @@ alias pu='pushd'
 alias type='type -a'
 
 # GNU Replacements that couldn't be installed with --default-names
-alias cal=gcal
+if type "gcal" > /dev/null; then
+  alias cal=gcal
+fi
 
 # cd
 alias cd..="cd .."
