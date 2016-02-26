@@ -59,7 +59,3 @@ export PATH="$PATH:./node_modules/.bin/"
 
 export NVM_DIR=~/.nvm
 source /usr/local/opt/nvm/nvm.sh
-
-# Source all Stitch related configuration.
-source ~/stitch_zshrc.sh
-
