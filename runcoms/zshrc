@@ -16,23 +16,20 @@ export EDITOR="vim"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+# Update `$PATH` to include node_modules/.bin executables.
+export PATH="$PATH:./node_modules/.bin"
+
+# Update `$PATH` to include Android CLI tools.
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Shell virtualenvwrapper startup.
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/Devel
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
   source /usr/local/bin/virtualenvwrapper.sh
-fi
-
-# Enable bash-style comments.
-setopt interactivecomments
-
-# Prepends "nocorrect" to avoid zsh's bs correct feature.
-#
-# zsh: correct 'x' to 'y'[nyae]?
-if [ -f ~/zsh_nocorrect ]; then
-  while read -r COMMAND; do
-    alias $COMMAND="nocorrect $COMMAND"
-  done < ~/zsh_nocorrect
 fi
 
 # Automatically `workon $env` when we cd into virtualenv dir with .venv
@@ -54,8 +51,20 @@ venv_cd() {
 check_virtualenv
 alias cd='venv_cd'
 
-# Update `$PATH` to include node_modules/.bin executables.
-export PATH="$PATH:./node_modules/.bin"
+# Enable bash-style comments.
+setopt interactivecomments
+
+# Prepends "nocorrect" to avoid zsh's bs correct feature.
+#
+# zsh: correct 'x' to 'y'[nyae]?
+if [ -f ~/zsh_nocorrect ]; then
+  while read -r COMMAND; do
+    alias $COMMAND="nocorrect $COMMAND"
+  done < ~/zsh_nocorrect
+fi
+
+# docker-compose because always typing docker-compose is arduous.
+alias dc=$(which docker-compose)
 
 if [ -f /usr/local/opt/nvm/nvm.sh ]; then
   export NVM_DIR=~/.nvm
